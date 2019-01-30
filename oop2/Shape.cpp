@@ -18,7 +18,7 @@ Point Shape::get_org()
 }
 
 
-Color Shape::get_color() const		// translate an enum to a string
+void Shape::get_color() const		// translate an enum to a string
 {
 	switch (m_color)
 	{
@@ -30,5 +30,4 @@ Color Shape::get_color() const		// translate an enum to a string
 	case black:		cout << "Black "; break;
 	default:		cout << "No color ";
 	}
-	return m_color;
 }

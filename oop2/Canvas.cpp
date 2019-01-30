@@ -18,7 +18,7 @@ Canvas::~Canvas()
 
 void Canvas::draw() //printing
 {
-	cout << "------------------- " << m_color << " canvas" << " -------------------" << endl;
+	cout << "------------------- " << Shape::get_color() << " canvas" << " -------------------" << endl;
 	for (int i = 0; i < m_length; i++)
 	{
 		Point temp_org(m_shapes[i]->get_org());

@@ -12,7 +12,7 @@ Point Circle::get_radius() const
 
 void Circle::draw()
 {
-	cout << m_color << " Circle : Center in " << m_org << " Radius is " << m_radius << endl;
+	cout << Shape::get_color() << " Circle : Center in " << m_org << " Radius is " << m_radius << endl;
 }
 
 void Circle::scale(const int & factor)
