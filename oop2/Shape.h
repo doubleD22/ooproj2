@@ -38,7 +38,7 @@ public:
 	void move(const Point& P);		   //moving m_org (and therefore moving the shape) by
 									  //another point coordinates
 	virtual Point get_org();
-	Color get_color() const;
+	void get_color() const;
 
 };
 	
