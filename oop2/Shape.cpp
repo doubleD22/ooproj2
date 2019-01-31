@@ -17,17 +17,19 @@ Point Shape::get_org()
 	return m_org;
 }
 
-
-void Shape::get_color() const		// translate an enum to a string
+ostream & operator<<(ostream & os, const Color & c)
 {
-	switch (m_color)
+
+	switch (c)
 	{
-	case white:		cout << "White "; break;
-	case red:		cout << "Red "; break;
-	case green:		cout << "Green "; break;
-	case blue:		cout << "Blue "; break;
-	case yellow:	cout << "Yellow "; break;
-	case black:		cout << "Black "; break;
-	default:		cout << "No color ";
+	case Color::white:		os << "White "; break;
+	case Color::red:		os << "Red "; break;
+	case Color::green:		os << "Green "; break;
+	case Color::blue:		os << "Blue "; break;
+	case Color::yellow:		os << "Yellow "; break;
+	case Color::black:		os << "Black "; break;
+	default:				os << "No color ";
 	}
+	return os;
+
 }

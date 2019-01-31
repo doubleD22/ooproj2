@@ -14,7 +14,7 @@ void Line::move(const Point & p)
 
 void Line::draw()
 {
-	cout<< Shape::get_color() << " Line from " << m_org << " To " << m_end << endl;
+	cout<< m_color << " Line from " << m_org << " To " << m_end << endl;
 }
 
 double Line::length() const

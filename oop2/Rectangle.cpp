@@ -17,7 +17,7 @@ void Rectangle::draw() //every rectangle consists of 4 sides (lines)
 	Line up(Point(m_org.get_x(), m_upright.get_y()) , m_upright, m_color);
 	Line left(m_org, Point(m_org.get_x(), m_upright.get_y()), m_color);
 	Line right(Point(m_org.get_x(), m_upright.get_y()), m_upright, m_color);
-	cout << Shape::get_color() << " rectangle"<< endl;
+	cout << m_color << " rectangle"<< endl;
 	cout << "		";
 	down.draw();
 	cout << "		";

@@ -2,26 +2,14 @@
 #include "Point.h"
 #include <math.h>  
 
-enum Color { white = 0, red, green, blue, yellow, black, END_OF_COLORS};
+enum class Color { white = 0, red, green, blue, yellow, black, END_OF_COLORS};
 
-//ostream& operator<<(ostream& os, const Color& c)
-//{
-//	switch (c)
-//	{
-//	case Color::white:		os << "White "; break;
-//	case Color::red:		os << "Red "; break;
-//	case Color::green:		os << "Green "; break;
-//	case Color::blue:		os << "Blue "; break;
-//	case Color::yellow:		os << "Yellow "; break;
-//	case Color::black:		os << "Black "; break;
-//	default:				os << "No color ";
-//	}
-//	return os;
-//}
+ostream& operator<<(ostream& os, const Color& c);
 
 
 
-class Shape : public Point
+
+class Shape
 {
 protected:
 	Point m_org;    //the coordination point for the begging of the shape
@@ -38,7 +26,6 @@ public:
 	void move(const Point& P);		   //moving m_org (and therefore moving the shape) by
 									  //another point coordinates
 	virtual Point get_org();
-	void get_color() const;
 
 };
 	
