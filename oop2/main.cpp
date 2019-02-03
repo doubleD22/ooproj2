@@ -12,47 +12,47 @@ using namespace std;
 
 
 
-//Shape* shape_randomize(int canvas_counter)
-//{
-//	Shape* s;
-//	Point rand_org = point_randomize();
-//	Color rand_color = color_randomize();
-//	srand((unsigned)time(NULL));
-//	int shape;
-//	if (canvas_counter > 3)
-//		shape = rand() % 2;
-//	else
-//		shape = rand() % 3;
-//	switch (shape)
-//	{
-//	case 0:	//circle case
-//	{
-//		srand((unsigned)time(NULL));
-//		int rand_radius = rand() % 10;
-//		s=&Circle(rand_org, rand_radius, rand_color);
-//		break;
-//	}
-//	case 1:	//line case
-//	{
-//		Point rand_end = point_randomize();
-//		s = &Line(rand_org, rand_end, rand_color);
-//		break;
-//	}
-//	case 2:	//rectangle case
-//	{
-//		Point rand_p2 = point_randomize();
-//		s = &Rectangle(rand_org, rand_p2, rand_color);
-//		break;
-//	}
-//	case 3:	//canvas case
-//	{
-//		s = random_canvas();
-//		break;
-//	}
-//	}
-//	return s;
-//
-//}
+Shape* shape_randomize(int canvas_counter)
+{
+	Shape* s;
+	Point rand_org = point_randomize();
+	Color rand_color = color_randomize();
+	srand((unsigned)time(NULL));
+	int shape;
+	if (canvas_counter > 3)
+		shape = rand() % 2;
+	else
+		shape = rand() % 3;
+	switch (shape)
+	{
+	case 0:	//circle case
+	{
+		srand((unsigned)time(NULL));
+		int rand_radius = rand() % 10;
+		s=&Circle(rand_org, rand_radius, rand_color);
+		break;
+	}
+	case 1:	//line case
+	{
+		Point rand_end = point_randomize();
+		s = &Line(rand_org, rand_end, rand_color);
+		break;
+	}
+	case 2:	//rectangle case
+	{
+		Point rand_p2 = point_randomize();
+		s = &Rectangle(rand_org, rand_p2, rand_color);
+		break;
+	}
+	case 3:	//canvas case
+	{
+		s = random_canvas();
+		break;
+	}
+	}
+	return s;
+
+}
 
 
 Point point_randomize()
@@ -74,7 +74,7 @@ Color color_randomize()
 
 void shapes_creator(Canvas& c, unsigned size)
 {
-
+	c.insert_shape(shape_randomize(c.m_counter));
 }
 
 
@@ -83,7 +83,8 @@ void test()
 	srand((unsigned)time(NULL));
 	int size = rand() % 6;
 	Canvas rand_canvas(point_randomize(), color_randomize(), size);
-	shapes_creator(rand_canvas, rand_canvas)
+	shapes_creator(rand_canvas, rand_canvas.get_maxsize());
+	//
 	
 }
 
