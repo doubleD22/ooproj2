@@ -23,7 +23,7 @@ public:
 	virtual void scale(const int& factor)=0;
 	//virtual string who_am_i() = 0;	 //the name says it all 
 	virtual double area() = 0;			//return the area of the shape
-	void move(const Point& P);		   //moving m_org (and therefore moving the shape) by
+	virtual void move(const Point& P);		   //moving m_org (and therefore moving the shape) by
 									  //another point coordinates
 	virtual Point get_org();
 

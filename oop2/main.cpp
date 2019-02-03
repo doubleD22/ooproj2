@@ -10,7 +10,7 @@
 
 using namespace std;
 
-Canvas& random_canvas();
+Canvas* random_canvas();
 void shapes_creator(Canvas& canv, const int size);
 Shape* shape_randomize(int canvas_counter);
 Point point_randomize();
@@ -21,9 +21,9 @@ Color color_randomize();
 Point point_randomize()
 {
 	srand((unsigned)time(NULL));
-	int x = rand();
+	int x = rand()%30;
 	srand((unsigned)time(NULL));
-	int y = rand();
+	int y = rand()%30;
 	return Point(x, y);
 }
 
@@ -67,7 +67,7 @@ Shape* shape_randomize(int canvas_counter)
 	}
 	case 3:	//canvas case
 	{
-		s = &random_canvas();
+		s = random_canvas();
 		break;
 	}
 	}
@@ -77,37 +77,62 @@ Shape* shape_randomize(int canvas_counter)
 void shapes_creator(Canvas& canv, const int size)
 {
 	for (int i = 0; i < size; i++)
-		canv.insert_shape(shape_randomize(canv.m_counter));
+	{ 
+		Shape* temp = shape_randomize(canv.m_counter);
+		canv.insert_shape(temp);
+	}
+
 }
 
-Canvas& random_canvas()
+Canvas* random_canvas()
 {
 	srand((unsigned)time(NULL));
-	int rand_size = rand();
+	int rand_size = rand()%4;
 	Color rand_color = color_randomize();
 	Point rand_org = point_randomize();
 	Canvas temp(rand_org, rand_color);
 	shapes_creator(temp, rand_size);
-	return temp;
+	return &temp;
 }
+
+
+void test()
+{ 
+	Canvas* rc = random_canvas();
+	rc->draw();
+}
+
+
+
+
+
+
+
+
+
+
+
 
 int main()
 {
-	//Canvas& c1 = random_canvas();
-	//c1.draw();
-	Point org(0, 0);
-	Line l1(Point(1, 3), Point(3, 1), Color::red), l2(Point(5, 0), Point(4, 1),Color::red);
-	Circle c1(Point(5, 5), 7, Color::green);
-	Rectangle r1(Point(1, 3), Point(7, 8), Color::blue);
-	Canvas canv(org, Color::white);
-	canv.insert_shape(&l1);
-	canv.insert_shape(&l2);
-	canv.insert_shape(&c1);
-	canv.insert_shape(&r1);
+	////Canvas& c1 = random_canvas();
+	////c1.draw();
+	//Point org(0, 0);
+	//Line l1(Point(1, 3), Point(3, 1), Color::red), l2(Point(5, 0), Point(4, 1),Color::red);
+	//Circle c1(Point(5, 5), 7, Color::green);
+	//Rectangle r1(Point(1, 3), Point(7, 8), Color::blue);
+	//Canvas canv(org, Color::white);
+	//canv.insert_shape(&l1);
+	//canv.insert_shape(&l2);
+	//canv.insert_shape(&c1);
+	//canv.insert_shape(&r1);
+	////canv.draw();
+	//canv.move(Point(10, 10));
 	//canv.draw();
-	canv.move(Point(10, 10));
-	canv.draw();
-	//canv.who_am_i();
-	canv.scale(2);
-	canv.draw();
+	////canv.who_am_i();
+	//canv.scale(2);
+	//canv.draw();
+	test();
+
+
 }

@@ -32,7 +32,7 @@ void Canvas::draw() //printing
 void Canvas::scale(const int & factor)
 {
 	for (int i = 0; i < m_length; i++)
-		(*m_shapes)[i].scale(factor);
+		m_shapes[i]->scale(factor);
 }
 
 double Canvas::area()

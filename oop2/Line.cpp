@@ -1,9 +1,9 @@
 #include "Line.h"
 
 
-Line::Line(const Point & p1 = Point(0, 0), const Point & p2 = Point(1, 1), const Color c = Color::white) : Shape(p1.get_x()>p2.get_x()?p2:p1, c)
+Line::Line(const Point & p1 = Point(0, 0), const Point & p2 = Point(1, 1), const Color c = Color::white) : Shape(p1.get_x()<p2.get_x()?p1:p2, c)
 {
-	m_end = p1.get_x()>p2.get_x() ? p1 : p2;
+	m_end = p2.get_x()>p1.get_x() ? p2 : p1;
 }
 
 void Line::move(const Point & p)
