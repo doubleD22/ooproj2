@@ -11,6 +11,39 @@
 using namespace std;
 
 
+Point point_randomize();
+Color color_randomize();
+Canvas* random_canvas();
+Shape* shape_randomize(int canvas_counter);
+void shapes_creator(Canvas& c, unsigned size);
+void test();
+
+
+
+
+Point point_randomize()
+{
+	srand((unsigned)time(NULL));
+	int x = rand() % 30;
+	srand((unsigned)time(NULL));
+	int y = rand() % 30;
+	return Point(x, y);
+}
+
+Color color_randomize()
+{
+	srand((unsigned)time(NULL));
+	return Color(rand() % 6);
+}
+
+Canvas* random_canvas()
+{
+	srand((unsigned)time(NULL));
+	int size = rand() % 6;
+	Canvas rand_canvas(point_randomize(), color_randomize(), size);
+	shapes_creator(rand_canvas, rand_canvas.get_maxsize());
+	return &rand_canvas;
+}
 
 Shape* shape_randomize(int canvas_counter)
 {
@@ -55,37 +88,22 @@ Shape* shape_randomize(int canvas_counter)
 }
 
 
-Point point_randomize()
-{
-	srand((unsigned)time(NULL));
-	int x = rand()%30;
-	srand((unsigned)time(NULL));
-	int y = rand()%30;
-	return Point(x, y);
-}
-
-Color color_randomize()
-{
-	srand((unsigned)time(NULL));
-	return Color(rand() % 6);
-}
-
 
 
 void shapes_creator(Canvas& c, unsigned size)
 {
-	c.insert_shape(shape_randomize(c.m_counter));
-}
+	for (int i = 0; i < size; i++)
+		c.insert_shape(shape_randomize(c.m_counter));
+} 
 
 
 void test()
 {
 	srand((unsigned)time(NULL));
 	int size = rand() % 6;
-	Canvas rand_canvas(point_randomize(), color_randomize(), size);
+	Canvas rand_canvas(Point(0,0), color_randomize(), size);
 	shapes_creator(rand_canvas, rand_canvas.get_maxsize());
-	//
-	
+	rand_canvas.draw();
 }
 
 

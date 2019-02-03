@@ -9,7 +9,7 @@ protected:
 public:
 	Circle(const Point& center, const unsigned& radius, const Color c); //constructor
 	Point get_radius() const; 
-	void draw();		//return the center, the radius and the color of the circle 
+	void draw() const;		//return the center, the radius and the color of the circle 
 	void scale(const int& factor);   
 	double area();
 };

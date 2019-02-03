@@ -28,15 +28,17 @@ Canvas::~Canvas()
 	m_counter--;
 }
 
-void Canvas::draw() //printing
+void Canvas::draw() const //printing
 {
 	cout << "------------------- " << m_color << " canvas" << " -------------------" << endl;
 	for (int i = 0; i < m_length; i++)
 	{
-		Point temp_org(m_shapes[i]->get_org());
-		m_shapes[i]->move(m_org);
-		m_shapes[i]->draw();
-		m_shapes[i]->move(temp_org);
+		//Point temp_org(m_shapes[i]->get_org());
+		//m_shapes[i]->move(m_org);
+		//m_shapes[i]->draw();
+		//m_shapes[i]->move(temp_org);
+		Shape* temp = m_shapes[i];
+
 	}
 	cout << "------------------- " << "end canvas" << " -------------------" << endl;
 }
@@ -57,7 +59,7 @@ double Canvas::area()
 
 bool Canvas::insert_shape(Shape * shape)
 {
-	if (m_length = m_maxsize)
+	if (m_length == m_maxsize)
 	{
 		cout << "error!, the canvas is full." << endl;
 		return false;

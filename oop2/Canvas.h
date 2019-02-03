@@ -11,7 +11,7 @@ private:
 public:
 	Canvas(const Point& p , Color c, const int& length); //constructor
 	~Canvas();
-	void draw();
+	void draw() const;
 	void scale(const int& factor);
 	double area();
 	bool insert_shape(Shape* shape);

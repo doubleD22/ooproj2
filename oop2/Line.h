@@ -10,7 +10,7 @@ protected:
 public:
 	Line(const Point& p1 , const Point& p2, const Color c); //constructor
 	void move(const Point& p);          // add the coordinate of p for m_end and m_org
-	void draw();
+	void draw() const;
 	double length() const;
 	//string who_am_i() { return "line"; } //yep, im a line
 	void scale(const int& factor);

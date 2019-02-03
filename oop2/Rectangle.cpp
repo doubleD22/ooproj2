@@ -11,7 +11,7 @@ void Rectangle::move(const Point & p)
 	m_upright += p;
 }
 
-void Rectangle::draw() //every rectangle consists of 4 sides (lines)
+void Rectangle::draw() const //every rectangle consists of 4 sides (lines)
 {
 	Line down(m_org, Point(m_upright.get_x(),m_org.get_y()), m_color); 
 	Line up(Point(m_org.get_x(), m_upright.get_y()) , m_upright, m_color);

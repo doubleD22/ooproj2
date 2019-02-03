@@ -12,7 +12,7 @@ void Line::move(const Point & p)
 	m_end += p;
 }
 
-void Line::draw()
+void Line::draw() const
 {
 	cout<< m_color << " Line from " << m_org << " To " << m_end << endl;
 }
