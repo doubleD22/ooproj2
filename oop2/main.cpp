@@ -10,12 +10,49 @@
 
 using namespace std;
 
-Canvas* random_canvas();
-void shapes_creator(Canvas& canv, const int size);
-Shape* shape_randomize(int canvas_counter);
-Point point_randomize();
-Color color_randomize();
 
+
+//Shape* shape_randomize(int canvas_counter)
+//{
+//	Shape* s;
+//	Point rand_org = point_randomize();
+//	Color rand_color = color_randomize();
+//	srand((unsigned)time(NULL));
+//	int shape;
+//	if (canvas_counter > 3)
+//		shape = rand() % 2;
+//	else
+//		shape = rand() % 3;
+//	switch (shape)
+//	{
+//	case 0:	//circle case
+//	{
+//		srand((unsigned)time(NULL));
+//		int rand_radius = rand() % 10;
+//		s=&Circle(rand_org, rand_radius, rand_color);
+//		break;
+//	}
+//	case 1:	//line case
+//	{
+//		Point rand_end = point_randomize();
+//		s = &Line(rand_org, rand_end, rand_color);
+//		break;
+//	}
+//	case 2:	//rectangle case
+//	{
+//		Point rand_p2 = point_randomize();
+//		s = &Rectangle(rand_org, rand_p2, rand_color);
+//		break;
+//	}
+//	case 3:	//canvas case
+//	{
+//		s = random_canvas();
+//		break;
+//	}
+//	}
+//	return s;
+//
+//}
 
 
 Point point_randomize()
@@ -33,73 +70,21 @@ Color color_randomize()
 	return Color(rand() % 6);
 }
 
-Shape* shape_randomize(int canvas_counter)
-{
-	Shape* s;
-	Point rand_org = point_randomize();
-	Color rand_color = color_randomize();
-	srand((unsigned)time(NULL));
-	int shape;
-	if (canvas_counter > 3)
-		shape = rand() % 2;
-	else
-		shape = rand() % 3;
-	switch (shape)
-	{
-	case 0:	//circle case
-	{
-		srand((unsigned)time(NULL));
-		int rand_radius = rand() % 10;
-		s=&Circle(rand_org, rand_radius, rand_color);
-		break;
-	}
-	case 1:	//line case
-	{
-		Point rand_end = point_randomize();
-		s = &Line(rand_org, rand_end, rand_color);
-		break;
-	}
-	case 2:	//rectangle case
-	{
-		Point rand_p2 = point_randomize();
-		s = &Rectangle(rand_org, rand_p2, rand_color);
-		break;
-	}
-	case 3:	//canvas case
-	{
-		s = random_canvas();
-		break;
-	}
-	}
-	return s;
 
-}
-void shapes_creator(Canvas& canv, const int size)
-{
-	for (int i = 0; i < size; i++)
-	{ 
-		Shape* temp = shape_randomize(canv.m_counter);
-		canv.insert_shape(temp);
-	}
 
-}
-
-Canvas* random_canvas()
+void shapes_creator(Canvas& c, unsigned size)
 {
-	srand((unsigned)time(NULL));
-	int rand_size = rand()%4;
-	Color rand_color = color_randomize();
-	Point rand_org = point_randomize();
-	Canvas temp(rand_org, rand_color);
-	shapes_creator(temp, rand_size);
-	return &temp;
+
 }
 
 
 void test()
-{ 
-	Canvas* rc = random_canvas();
-	rc->draw();
+{
+	srand((unsigned)time(NULL));
+	int size = rand() % 6;
+	Canvas rand_canvas(point_randomize(), color_randomize(), size);
+	shapes_creator(rand_canvas, rand_canvas)
+	
 }
 
 

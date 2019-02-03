@@ -70,4 +70,9 @@ bool Canvas::insert_shape(Shape * shape)
 	}
 }
 
+int Canvas::get_maxsize()
+{
+	return m_maxsize;
+}
+
 

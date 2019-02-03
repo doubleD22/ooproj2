@@ -15,6 +15,7 @@ public:
 	void scale(const int& factor);
 	double area();
 	bool insert_shape(Shape* shape);
+	int get_maxsize();
 	//Canvas& operator=(const Canvas& c);
 	static int m_counter;
 };
